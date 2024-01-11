@@ -1,3 +1,8 @@
+#Install Pustaka terlebih dahulu
+pip install python-docx
+pip install docx2pdf
+
+#Source Code
 from docx import Document
 from docx2pdf import convert
 
