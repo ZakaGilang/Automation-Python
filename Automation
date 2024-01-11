@@ -1,0 +1,34 @@
+from docx import Document
+from docx2pdf import convert
+
+def convert_docx_to_pdf(docx_path, pdf_path):
+    try:
+        # READ DOCX
+        doc = Document(docx_path)
+
+        # SAVE TO PDF
+        doc.save(pdf_path)
+
+        print(f"Konversi berhasil: {docx_path} -> {pdf_path}")
+    except Exception as e:
+        print(f"Error: {e}")
+
+def bulk_convert_docx_to_pdf(folder_input, folder_output):
+    try:
+        # Mengonversi semua file DOCX dalam folder input ke PDF dalam folder output
+        convert(folder_input, folder_output)
+
+        print(f"Konversi document berhasil: {folder_input} -> {folder_output}")
+    except Exception as e:
+        print(f"Error: {e}")
+
+if __name__ == "__main__":
+    # # Contoh penggunaan untuk satu file
+    docx_file = "C:/Users/LENOVO/Desktop/PYTHON/folder Input/TEST PTHON.docx"
+    pdf_file = "C:/Users/LENOVO/Desktop/PYTHON/folder Output/document.pdf"
+    convert_docx_to_pdf(docx_file, pdf_file)
+
+    # Contoh penggunaan untuk mengonversi banyak file dalam satu folder
+    folder_input = "C:/Users/LENOVO/Desktop/PYTHON/folder Input"
+    folder_output = "C:/Users/LENOVO/Desktop/PYTHON/folder Output"
+    bulk_convert_docx_to_pdf(folder_input, folder_output)
